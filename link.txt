@@ -1,0 +1,44 @@
+
+
+Active Cases of renting out of flat
+https://beta.data.gov.sg/datasets/d_2f2c29c3f821461f36c24c6c1dbbe059/view
+
+Demand for Rental and Sold Flats
+https://beta.data.gov.sg/datasets/d_4b4ee36346b27fe35c529588900340b2/view
+
+
+Median Rent By Town and Flat Type
+https://beta.data.gov.sg/datasets/d_23000a00c52996c55106084ed0339566/view
+
+
+HDB Residential Units Sold and Rented in FY
+https://beta.data.gov.sg/datasets/d_67966e5fd5dce14cf9fa5f0bc5164faf/view
+
+
+HDB Property Information
+https://beta.data.gov.sg/datasets/d_17f5382f26140b1fdae0ba2ef6239d2f/view
+
+Renting out of Flat Approvals by Flat Type, Quarterly
+https://beta.data.gov.sg/datasets/d_dad4567fc02596774010f765567780e3/view
+
+
+CPF Housing Grants Awarded By Type
+https://beta.data.gov.sg/datasets/d_a223380e5856cf06f7eac223e5902230/view 
+
+
+Price Range of HDB Flats Offered
+https://beta.data.gov.sg/datasets/d_2d493bdcc1d9a44828b6e71cb095b88d/view
+
+Median Resale Price for Registered Applications by Town and Flat Type
+https://beta.data.gov.sg/datasets/d_b51323a474ba789fb4cc3db58a3116d4/view
+
+
+Number of Sold and Rented HDB Residential Units
+https://beta.data.gov.sg/datasets/d_67966e5fd5dce14cf9fa5f0bc5164faf/view 
+
+HDB Resident Population
+https://beta.data.gov.sg/datasets/d_740bc018cfe20d3d6f6c53fe6a69fa6b/view 
+
+
+Average and Median size of HDB Households by Ethnic Group
+https://beta.data.gov.sg/datasets/d_abf82c79fc908b12bb8d631e6853e98f/view
