@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name="data-processor",
@@ -8,6 +8,8 @@ setup(
         'requests',
         'importlib-metadata; python_version<"3.10"',
     ],
+    author='Ang Kok Leong',
+    packages=find_packages(exclude=('tests', 'docs'))
 )
 
 #https://setuptools.pypa.io/en/latest/build_meta.html
