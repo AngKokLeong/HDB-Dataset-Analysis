@@ -157,9 +157,13 @@ class Transform:
 
         return dataset
 
-    def transform_demand_for_rental_and_sold_flats_dataset(self) -> numpy.ndarray:
+    def transform_demand_for_rental_and_sold_flats_dataset(self, dataset: numpy.ndarray) -> numpy.ndarray:
+
+        print(dataset.dtype.names == ('start_year', 'end_year', 'flat_type', 'demand_for_flats'))
         
-        pass
+        dataset["flat_type"] = numpy.char.strip(dataset["flat_type"])
+
+        return dataset
 
     def transform_active_cases_of_renting_out_of_flat_dataset(self) -> numpy.ndarray:
         pass
