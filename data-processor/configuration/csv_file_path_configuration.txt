@@ -7,7 +7,7 @@ ActiveCasesOfRentingOutOfFlat: ${DEFAULT:csv_file_path}/active-cases-of-renting-
 DemandForRentalAndSoldFlats: ${DEFAULT:csv_file_path}/demand-for-rental-and-sold-flats.csv
 MedianRentByTownAndFlatType: ${DEFAULT:csv_file_path}/median-rent-by-town-and-flat-type.csv
 HDBPropertyInformation: ${DEFAULT:csv_file_path}/hdb-property-information.csv
-MedianResalePricesForRegisteredApplicationsByTownAndFlatType: ${DEFAULT:csv_file_path}/number_of_sold_and_rented_hdb_residential_units.csv
+MedianResalePricesForRegisteredApplicationsByTownAndFlatType: ${DEFAULT:csv_file_path}/median-resale-prices-for-registered-applications-by-town-and-flat-type.csv
 NumberOfSoldAndRentedHDBResidentialUnits: ${DEFAULT:csv_file_path}/number_of_sold_and_rented_hdb_residential_units.csv
 PriceRangeOfHDBFlatsOffered: ${DEFAULT:csv_file_path}/price-range-of-hdb-flats-offered.csv
 CPFHousingGrantsAwardedByType: ${DEFAULT:csv_file_path}

@@ -40,7 +40,7 @@ class Extract:
     def retrieve_data_for_median_resale_prices_for_registered_applications_by_town_and_flat_type(self) -> numpy.ndarray:
         file_name = self.configparser_object["CSV_FILES"]["MedianResalePricesForRegisteredApplicationsByTownAndFlatType"]
         
-        data = numpy.loadtxt(file_name, skiprows=1, dtype=[('quarter', 'U7'), ('town', 'U15'), ('flat_type', 'U6'), ('price', '>U10')], delimiter=",")
+        data = numpy.loadtxt(file_name, skiprows=1, dtype=[('quarter', 'U7'), ('town', 'U16'), ('flat_type', 'U9'), ('price', '>U10')], delimiter=",")
 
         return data
 
@@ -114,16 +114,51 @@ class Transform:
 
         return dataset
 
-    def transform_price_range_of_hdb_flats_offered_dataset(self) -> numpy.ndarray:
-        pass
+    def transform_price_range_of_hdb_flats_offered_dataset(self, dataset:numpy.ndarray) -> numpy.ndarray:
+        
+        print(dataset.dtype.names == ('financial_year', 'town', 'room_type', 'min_selling_price', 'max_selling_price', 'min_selling_price_less_ahg_shg', 'max_selling_price_less_ahg_shg'))
 
-    def transform_number_of_sold_and_rented_hdb_residential_units_dataset(self) -> numpy.ndarray:
-        pass
+        dataset["town"] = numpy.char.strip(dataset["town"])
+        dataset["room_type"] = numpy.char.strip(dataset["room_type"])
 
-    def transform_median_resale_prices_for_registered_applications_by_town_and_flat_type_dataset(self) -> numpy.ndarray:
-        pass
+        return dataset
+
+    def transform_number_of_sold_and_rented_hdb_residential_units_dataset(self, dataset: numpy.ndarray) -> numpy.ndarray:
+
+        print(dataset.dtype.names == ('financial_year', 'property_type', 'category', 'flat_type', 'no_of_units'))
+
+        dataset["property_type"] = numpy.char.strip(dataset["property_type"])
+        dataset["category"] = numpy.char.strip(dataset["category"])
+        dataset["flat_type"] = numpy.char.strip(dataset["flat_type"])
+        dataset["no_of_units"] = numpy.char.strip(dataset["no_of_units"])
+        
+        #HDB = 0
+        #DBSS = 1
+
+
+        #sold = 0
+        #Rented = 1
+
+        #different flat type encoding
+        #1-room flats = 0
+        
+
+        return dataset
+        
+
+    def transform_median_resale_prices_for_registered_applications_by_town_and_flat_type_dataset(self, dataset: numpy.ndarray) -> numpy.ndarray:
+        
+        print(dataset.dtype.names == ('quarter', 'town', 'flat_type', 'price'))
+
+        dataset["quarter"] = numpy.char.strip(dataset["quarter"])
+        dataset["town"] = numpy.char.strip(dataset["town"])
+        dataset["flat_type"] = numpy.char.strip(dataset["flat_type"])
+        dataset["price"] = numpy.char.strip(dataset["price"])
+
+        return dataset
 
     def transform_demand_for_rental_and_sold_flats_dataset(self) -> numpy.ndarray:
+        
         pass
 
     def transform_active_cases_of_renting_out_of_flat_dataset(self) -> numpy.ndarray:
