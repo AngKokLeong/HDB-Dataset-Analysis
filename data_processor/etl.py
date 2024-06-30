@@ -1,6 +1,6 @@
 import numpy 
 import configparser
-import csv
+
 
 '''
 
@@ -9,15 +9,12 @@ import csv
 
 class Extract:
 
-    def __init__(self):
-        self.configparser_object = configparser.ConfigParser(interpolation=configparser.ExtendedInterpolation())
-        self.configparser_object.read("configuration/csv_file_path_configuration.txt")
+    def __init__(self, configparser: configparser.ConfigParser):
+        self.configparser_object = configparser
         
-
     def retrieve_data_for_active_cases_of_renting_out_of_flat(self) -> numpy.ndarray:
-
         file_name = self.configparser_object["CSV_FILES"]["ActiveCasesOfRentingOutOfFlat"]
-
+        
         data = numpy.loadtxt(file_name, skiprows=1, dtype=[('financial_year', 'i8'), ('no_active_cases', 'i8')], delimiter=",")
 
         return data
@@ -165,8 +162,11 @@ class Transform:
 
         return dataset
 
-    def transform_active_cases_of_renting_out_of_flat_dataset(self) -> numpy.ndarray:
-        pass
+    def transform_active_cases_of_renting_out_of_flat_dataset(self, dataset: numpy.ndarray) -> numpy.ndarray:
+        
+        print(dataset.dtype.names == ('financial_year', 'no_active_cases'))
+        
+        return dataset
 
     def combine_two_dataset(self, dataset_one: numpy.ndarray, dataset_two: numpy.ndarray, reference_columns: list[str]) -> numpy.ndarray:
 

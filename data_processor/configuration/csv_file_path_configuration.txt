@@ -1,5 +1,7 @@
+
 [DEFAULT]
-csv_file_path: /workspaces/IPDS-CA1-Jupyter/HDB-Dataset-Analysis/data-processor/csv-files
+project_file_path: a
+csv_file_path: ${DEFAULT:project_file_path}/csv-files
 
 [CSV_FILES]
 RentingOutOfFlatApprovalsByFlatTypeQuarterly: ${DEFAULT:csv_file_path}/renting-out-of-flat-approvals-by-flat-type-quarterly.csv
