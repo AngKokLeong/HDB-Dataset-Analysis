@@ -5,8 +5,8 @@ class Describe:
     
 
     def determine_numerical_data_type(self, data_type: numpy.dtype) -> bool:
-
-        if data_type not in [numpy.dtypes.BoolDType, numpy.dtypes.ByteDType, numpy.dtypes.BytesDType, numpy.dtypes.Complex128DType, numpy.dtypes.Complex64DType, numpy.dtypes.DateTime64DType, numpy.dtypes.ObjectDType, numpy.dtypes.StrDType, numpy.dtypes.VoidDType, numpy.dtypes.UByteDType, numpy.dtypes.TimeDelta64DType]:
+        
+        if data_type.char not in ['U']:
             return True
         else:
             return False
@@ -27,8 +27,9 @@ class Describe:
         for column in dataset.dtype.names:
             
             numeric_data_status: bool = self.determine_numerical_data_type(dataset[column].dtype)
+
             if numeric_data_status == False:
-                if False in numpy.char.isnumeric(dataset[column]):
+                if (False in numpy.char.isnumeric(dataset[column])) == True:
                     numeric_data_status = False
                 else:
                     numeric_data_status = True

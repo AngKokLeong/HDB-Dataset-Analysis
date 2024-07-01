@@ -86,17 +86,15 @@ class Transform:
         filtered_dataset_median_rent_without_na_and_dash_dataset: numpy.ndarray = dataset[(dataset["median_rent"] != "na") & (dataset["median_rent"] != "-")]
 
 
-        filtered_dataset_median_rent_na_dataset: numpy.ndarray = dataset[dataset["median_rent"] == "na"]
-        filtered_dataset_median_rent_dash_dataset: numpy.ndarray = dataset[dataset["median_rent"] == "-"]
+        #filtered_dataset_median_rent_na_dataset: numpy.ndarray = dataset[dataset["median_rent"] == "na"]
+        #filtered_dataset_median_rent_dash_dataset: numpy.ndarray = dataset[dataset["median_rent"] == "-"]
 
+        #filtered_dataset_median_rent_na_dataset["median_rent"] = "-2"
+        #filtered_dataset_median_rent_dash_dataset["median_rent"] = "-1"
 
+        #combined_dataset: numpy.ndarray = numpy.concatenate((filtered_dataset_median_rent_without_na_and_dash_dataset, filtered_dataset_median_rent_na_dataset, filtered_dataset_median_rent_dash_dataset), axis=0, dtype=dataset.dtype)
         
-        filtered_dataset_median_rent_na_dataset["median_rent"] = "-2"
-        filtered_dataset_median_rent_dash_dataset["median_rent"] = "-1"
-
-        combined_dataset: numpy.ndarray = numpy.concatenate((filtered_dataset_median_rent_without_na_and_dash_dataset, filtered_dataset_median_rent_na_dataset, filtered_dataset_median_rent_dash_dataset), axis=0, dtype=dataset.dtype)
-        
-        return combined_dataset
+        return filtered_dataset_median_rent_without_na_and_dash_dataset
     
     def transform_renting_out_of_flat_approvals_by_flat_type_quarterly_dataset(self, dataset: numpy.ndarray) -> numpy.ndarray:
         
@@ -152,7 +150,20 @@ class Transform:
         dataset["flat_type"] = numpy.char.strip(dataset["flat_type"])
         dataset["price"] = numpy.char.strip(dataset["price"])
 
-        return dataset
+        filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_dataset_without_na_and_dash_in_price_column: numpy.ndarray = dataset[(dataset["price"] != "na") & (dataset["price"] != "-")]
+
+
+        #filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_na_dataset: numpy.ndarray = dataset[dataset["price"] == "na"]
+        #filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_dash_dataset: numpy.ndarray = dataset[dataset["price"] == "-"]
+
+
+        #filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_na_dataset["price"] = "-2"
+        #filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_dash_dataset["price"] = "-1"
+
+        #combined_dataset: numpy.ndarray = numpy.concatenate((filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_dataset_without_na_and_dash_in_price_column, filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_na_dataset, filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_dash_dataset), axis=0, dtype=dataset.dtype)
+        
+
+        return filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_dataset_without_na_and_dash_in_price_column
 
     def transform_demand_for_rental_and_sold_flats_dataset(self, dataset: numpy.ndarray) -> numpy.ndarray:
 
