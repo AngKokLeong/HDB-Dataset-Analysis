@@ -98,29 +98,19 @@ class Transform:
     
     def transform_renting_out_of_flat_approvals_by_flat_type_quarterly_dataset(self, dataset: numpy.ndarray) -> numpy.ndarray:
         
-        print(dataset.dtype.names == ('quarter', 'flat_type', 'no_of_approvals'))
-
-
         dataset["quarter"] = numpy.char.strip(dataset["quarter"])
         dataset["flat_type"] = numpy.char.strip(dataset["flat_type"])
-
-        print(dataset["no_of_approvals"].dtype)
-
 
         return dataset
 
     def transform_price_range_of_hdb_flats_offered_dataset(self, dataset:numpy.ndarray) -> numpy.ndarray:
         
-        print(dataset.dtype.names == ('financial_year', 'town', 'room_type', 'min_selling_price', 'max_selling_price', 'min_selling_price_less_ahg_shg', 'max_selling_price_less_ahg_shg'))
-
         dataset["town"] = numpy.char.strip(dataset["town"])
         dataset["room_type"] = numpy.char.strip(dataset["room_type"])
 
         return dataset
 
     def transform_number_of_sold_and_rented_hdb_residential_units_dataset(self, dataset: numpy.ndarray) -> numpy.ndarray:
-
-        print(dataset.dtype.names == ('financial_year', 'property_type', 'category', 'flat_type', 'no_of_units'))
 
         dataset["property_type"] = numpy.char.strip(dataset["property_type"])
         dataset["category"] = numpy.char.strip(dataset["category"])
@@ -143,14 +133,14 @@ class Transform:
 
     def transform_median_resale_prices_for_registered_applications_by_town_and_flat_type_dataset(self, dataset: numpy.ndarray) -> numpy.ndarray:
         
-        print(dataset.dtype.names == ('quarter', 'town', 'flat_type', 'price'))
+        
 
         dataset["quarter"] = numpy.char.strip(dataset["quarter"])
         dataset["town"] = numpy.char.strip(dataset["town"])
         dataset["flat_type"] = numpy.char.strip(dataset["flat_type"])
         dataset["price"] = numpy.char.strip(dataset["price"])
 
-        filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_dataset_without_na_and_dash_in_price_column: numpy.ndarray = dataset[(dataset["price"] != "na") & (dataset["price"] != "-")]
+        filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_dataset_without_na_and_dash_in_price_column: numpy.ndarray = dataset[(dataset["price"] != "NA") & (dataset["price"] != "-") & (dataset["price"] != "na")]
 
 
         #filtered_median_resale_prices_for_registered_applications_by_town_and_flat_type_na_dataset: numpy.ndarray = dataset[dataset["price"] == "na"]
@@ -167,7 +157,7 @@ class Transform:
 
     def transform_demand_for_rental_and_sold_flats_dataset(self, dataset: numpy.ndarray) -> numpy.ndarray:
 
-        print(dataset.dtype.names == ('start_year', 'end_year', 'flat_type', 'demand_for_flats'))
+    
         
         dataset["flat_type"] = numpy.char.strip(dataset["flat_type"])
 
@@ -175,7 +165,7 @@ class Transform:
 
     def transform_active_cases_of_renting_out_of_flat_dataset(self, dataset: numpy.ndarray) -> numpy.ndarray:
         
-        print(dataset.dtype.names == ('financial_year', 'no_active_cases'))
+    
         
         return dataset
 

@@ -38,7 +38,7 @@ class Chart:
         plt.xlabel("Town")
         plt.ylabel("Selling Price")
         plt.title("Minimum and Maximum Selling Price for HDB Flat in {0}".format(year))
-        plt.legend(loc="upper right", labels=["Maximum Selling Price", "Minimum Selling Price"])
+        plt.legend(loc="lower right", labels=["Maximum Selling Price", "Minimum Selling Price"])
             
         plt.show()
 
@@ -53,7 +53,32 @@ class Chart:
 
 
         plt.boxplot(new_dataset_list, showbox=True,showmeans=True, showfliers=True, labels=[2020, 2021,2022,2023])
-        plt.title("Median Rent by Year and Selling Price")
+        plt.title("Median Rent by Year")
         plt.xlabel("Year")
-        plt.ylabel("Selling Price")
+        plt.ylabel("Median Rent")
     
+
+    def generate_line_graph_for_annual_median_resale_prices_for_registered_applications_by_town_and_flat_type(self, dataset: numpy.ndarray, year_list: list, title: str) -> None:
+        plt.figure(dpi=300).set_size_inches(20, 10.5, forward=True)
+
+        plt.title(title)
+        plt.xlabel("Year")
+        plt.ylabel("Resales Price")
+        plt.plot(year_list,dataset, "b-o")
+        plt.xticks(year_list, year_list)
+
+        for data in zip(year_list,dataset):                                       # <--
+            plt.annotate(data[1], data)
+
+        plt.show()
+
+    
+    def generate_scatterplot_for_analyzing_median_rent_and_median_resale_price(self, median_resale_price_dataset: numpy.ndarray, median_rent_dataset: numpy.ndarray) -> None:
+        plt.figure(dpi=300).set_size_inches(20, 10.5, forward=True)
+
+        plt.scatter(median_resale_price_dataset, median_rent_dataset)
+        plt.locator_params(axis='x', nbins=15)
+        plt.locator_params(axis='y', nbins =15)
+        plt.title("Scatterplot between Median Rent and Median Resale Price")
+        plt.xlabel("Median Resale Price")
+        plt.ylabel("Median Rent")
